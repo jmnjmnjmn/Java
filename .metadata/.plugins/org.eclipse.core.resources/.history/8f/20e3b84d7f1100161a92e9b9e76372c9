@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+
+
+public class AccountsReceivable {
+	public static void  main(){
+		Accounting aTransaction = new CustomerTransaction(new Customer(), new ArrayList<Product>());
+		AccountsReceivable acc = new AccountsReceivable(aTransaction);
+		acc.postPayment();
+	}
+
+	private Accounting transactionObject;
+	
+	public AccountsReceivable(Accounting aTransaction){
+		transactionObject = aTransaction;
+	}
+	
+	
+	public void postPayment(){
+		transactionObject.chargeCustomer();
+	}
+
+	public void sendInvoice(){
+		transactionObject.prepareInvoice();
+		// sends the invoice
+	}
+
+}

@@ -1,6 +1,5 @@
-
 public class AccountsReceivable {
-
+	
 	private Accounting transactionObject;
 	
 	public AccountsReceivable(Accounting aTransaction){
