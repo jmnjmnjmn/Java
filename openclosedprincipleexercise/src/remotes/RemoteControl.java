@@ -1,7 +1,7 @@
 package remotes;
 
 import devices.Device;
-
+import java.util.*;
 public class RemoteControl {
 	
 	private Device device = null;
