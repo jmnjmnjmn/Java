@@ -11,7 +11,7 @@ public class ClientModule {
 		
 		Employee peggy = new Employee(1, "peggy","accounting", true);
 		ClientModule.hireNewEmployee(peggy);
-		printEmployeeReport(peggy, FormatType.CSV);
+		printEmployeeReport(peggy, FormatType.XML);
 		
 	}
 	
