@@ -45,6 +45,7 @@ public class EmployeeManagementSystem implements ISubject {
 	public void hireNewEmployee(Employee emp) {
 		this.emp = emp;
 		this.msg = "New Hire";
+		employees.add(emp);
 		notifyObservers();
 	}
 	
