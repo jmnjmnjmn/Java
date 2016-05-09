@@ -19,11 +19,14 @@ public class EmployeeManagementSystem implements ISubject {
 	private Employee emp;
 	private String msg= null;
 	private List<IObserver> observers;
+//	private Map<String,List<IObserver>> observersMap; //¶à¸öoberver
+	
 	private List<Employee> employees;
 	private EmployeeDAO employeeDAO;
 
 	public EmployeeManagementSystem() {
 		observers = new ArrayList<IObserver>();
+		//observersMap = new HashMap<String, List<Event>>(); 
 		employeeDAO = new EmployeeDAO();
 		employees = employeeDAO.generateEmployees();
 	}
@@ -54,12 +57,28 @@ public class EmployeeManagementSystem implements ISubject {
 		// the observers added to this list are interested in getting notified.
 		observers.add(addMe);
 	}
+	
+//	public void register(String eventName, IObserver event) {
+//    if (observersmap.containsKey(eventName)) {
+//        observersmap.get(eventName).add(event);
+//      } else {
+//        List<Event> events = new ArrayList<Event>();
+//        events.add(event);
+//        observersmap.put(eventName, events);
+//      }
+//    };
 
 	@Override
 	public void removeObserver(IObserver removeMe) {
 		int removeIndex = observers.indexOf(removeMe);
 		observers.remove(removeIndex);
 	}
+	
+//	public void removeObserver(String eventName, IObserver removeMe) {
+//	if (observersmap.containsKey(eventName)) {
+//	      observersmap.get(eventName).remove(removeMe);
+//	    }
+//	}
 
 
 	public void notifyObservers() {
@@ -67,4 +86,11 @@ public class EmployeeManagementSystem implements ISubject {
 			department.callMe(emp, msg);		
 			}
 	}
+	
+//	public void notifyObservers(String eventName) {
+//	    if(observersmap.containsKey(eventName))
+//		for (IObserver department : observersmap.get(eventName)) {
+//			department.callMe(emp, msg);		
+//			}
+//	}
 }
